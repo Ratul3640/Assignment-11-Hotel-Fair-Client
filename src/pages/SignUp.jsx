@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import offerImg from '../assets/sliders/slider1.jpg'
-
 const SignUp = () => {
     const { createUser, user,  loading } = useAuth()
     const [error, setError] = useState(null)
