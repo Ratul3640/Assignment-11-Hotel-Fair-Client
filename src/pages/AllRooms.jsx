@@ -24,7 +24,7 @@ const AllRooms = () => {
                     <span className="inline-block w-1 h-1 bg-primay rounded-full"></span>
                 </div>
             </div>
-
+           
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     rooms.map(room => <RoomCom key={room._id} room={room}></RoomCom>)

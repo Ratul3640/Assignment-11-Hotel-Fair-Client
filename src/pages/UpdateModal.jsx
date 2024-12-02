@@ -6,35 +6,35 @@ import { RxCross2 } from "react-icons/rx";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const UpdateModal = ({ room, handleUpdate }) => {
-    const { _id, room_Title, price, room_Size, offer, bookingDate } = room;
+const UpdateModal = ({room, handleUpdate}) => {
+    const { _id, room_Title,  price, room_Size, offer, bookingDate } = room;
     const [startDate, setStartDate] = useState(bookingDate);
-    const { user } = useAuth()
-    const handleUpdateDate = e => {
+    const {user} = useAuth()
+    const handleUpdateDate = e =>{
         e.preventDefault()
         const bookingDate = e.target.date.value
         const update = {
             bookingDate
         }
-        axios.patch(`${import.meta.env.VITE_API_LINK}/myRooms/${_id}`, update, { withCredentials: true })
-            .then(res => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Update Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    handleUpdate(false)
-                }
-            })
+        axios.patch(`${import.meta.env.VITE_API_LINK}/myRooms/${_id}`, update, {withCredentials: true})
+        .then(res =>{
+            console.log(res.data);
+            if(res.data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Update Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+                  handleUpdate(false)
+            }
+        })
     }
 
     return (
         <div className="fixed inset-0 pt-12 md:pt-20 px-3 z-10 w-full bg-gray-500 bg-opacity-45">
             <form onSubmit={handleUpdateDate} className="max-w-xl mx-auto shadow-2xl border rounded-lg bg-gray-50 dark:bg-gray-800 p-3 md:p-8 relative space-y-1 md:space-y-5 text-lg">
-                <div>
+            <div>
                     <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Rooms Title</label>
                     <input type="text" defaultValue={room_Title} readOnly className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
@@ -79,7 +79,7 @@ const UpdateModal = ({ room, handleUpdate }) => {
                 </button>
 
                 <div onClick={handleUpdate} className="cursor-pointer absolute top-0 right-0 text-3xl pr-2">
-                    <RxCross2 />
+                    <RxCross2/>
                 </div>
             </form>
         </div>

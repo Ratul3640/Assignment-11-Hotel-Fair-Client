@@ -25,11 +25,11 @@ const MyRooms = () => {
         getData()
     }, [])
 
-    const handleUpdate = () => {
+    const handleUpdate = () =>{
         setUpdate(!update)
     }
 
-    const reviewModal = () => {
+    const reviewModal = () =>{
         setReview(!review)
     }
 

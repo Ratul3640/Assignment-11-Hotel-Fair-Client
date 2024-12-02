@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import offerImg from '../assets/sliders/slider1.jpg'
 
 const SignUp = () => {
-    const { createUser, user, loading } = useAuth()
+    const { createUser, user,  loading } = useAuth()
     const [error, setError] = useState(null)
     const handleCreateUser = e => {
         e.preventDefault()
@@ -39,7 +39,7 @@ const SignUp = () => {
                     imageWidth: 400,
                     imageHeight: 400,
                     imageAlt: "Custom image"
-                });
+                  });
                 toast('sign up successfully')
             })
             .catch(error => {
@@ -47,7 +47,7 @@ const SignUp = () => {
             })
     }
 
-    if (user || loading) return <Navigate to={'/'}></Navigate>
+    if(user || loading) return <Navigate to={'/'}></Navigate>
     return (
         <div className="py-24 px-3">
             <form onSubmit={handleCreateUser} className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">

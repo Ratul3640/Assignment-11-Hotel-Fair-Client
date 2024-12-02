@@ -118,10 +118,10 @@ const ContactUs = () => {
                 </div>
             </section>
             <div className="py-10 px-3">
-                <Map height={400} defaultCenter={[24.455447, 89.709901]} defaultZoom={11}>
-                    <Marker width={50} anchor={[24.455447, 89.709901]} />
-                </Map>
-            </div>
+            <Map height={400} defaultCenter={[24.455447, 89.709901]} defaultZoom={11}>
+                <Marker width={50} anchor={[24.455447, 89.709901]} />
+            </Map>
+        </div>
         </div>
     );
 };

@@ -26,19 +26,19 @@ const ReviewModal = ({ room, reviewModal }) => {
             ratings,
             customerReview
         }
-        axios.post(`${import.meta.env.VITE_API_LINK}/reviews`, userReviews, { withCredentials: true })
-            .then(res => {
-                console.log(res.data);
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Review Added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    reviewModal(false)
-                }
-            })
+        axios.post(`${import.meta.env.VITE_API_LINK}/reviews`, userReviews, {withCredentials: true})
+        .then(res =>{
+            console.log(res.data);
+            if(res.data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Review Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+                  reviewModal(false)
+            }
+        })
     }
     return (
         <div className="fixed inset-0 pt-12 md:pt-20 px-3 z-10 w-full bg-gray-500 bg-opacity-45">

@@ -21,8 +21,8 @@ const Navbar = () => {
         </NavLink>
         {
             user && <NavLink style={styleNav} to={'/myRooms'}>
-                <li className="px-5 py-2">My Booking</li>
-            </NavLink>
+            <li className="px-5 py-2">My Booking</li>
+        </NavLink>
         }
         <NavLink to={'/about'} style={styleNav}>
             <li className="px-5 py-2">About Us</li>
@@ -53,27 +53,27 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img alt={user?.displayName} src={user?.photoURL} />
+                        <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img alt={user?.displayName} src={user?.photoURL}/>
+                                        </div>
                                     </div>
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-base-100 rounded-box space-y-3">
+                                        <span>
+                                            <h1 className="text-xl">{user?.displayName}</h1>
+                                        </span>
+                                        <span>
+                                            <h1 className="text-xl">{user?.email}</h1>
+                                        </span>
+                                        <button onClick={hangleLogOut} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Log Out</button>
+                                    </ul>
                                 </div>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-base-100 rounded-box space-y-3">
-                                    <span>
-                                        <h1 className="text-xl">{user?.displayName}</h1>
-                                    </span>
-                                    <span>
-                                        <h1 className="text-xl">{user?.email}</h1>
-                                    </span>
-                                    <button onClick={hangleLogOut} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Log Out</button>
-                                </ul>
-                            </div>
-
-                            :
-                            <Link to={'/login'} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Login</Link>
+                        
+                        :
+                        <Link to={'/login'} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Login</Link>
                     }
-
+                    
                 </div>
             </div>
         </div>

@@ -40,8 +40,8 @@ const RoomCom = ({ room }) => {
                             <div className="absolute top-0 w-full bg-black bg-opacity-30 h-full">
                                 <div className='bg-primay p-3 flex items-center justify-between'>
                                     <h1 className="font-bold text-xl text-white ">{availability}</h1>
-                                    <h1 className="font-bold text-xl text-white ">
-                                        $ {price_per_night}</h1>
+                                    <h1 className="font-bold text-xl text-white "> 
+                                    $ {price_per_night}</h1>
                                 </div>
                             </div>
                         </div>

@@ -22,17 +22,17 @@ const RoomsDetails = () => {
     const [modal, setModal] = useState(false)
 
     const [reviews, setReviews] = useState([])
-    useEffect(() => {
+    useEffect(()=>{
         axios.get(`${import.meta.env.VITE_API_LINK}/reviews`)
-            .then(res => {
-                setReviews(res.data);
-            })
-    }, [])
+        .then(res =>{
+            setReviews(res.data);
+        })
+    },[])
 
     const filter = reviews.filter(review => review.roomTitle === description)
     // console.log(filter);
 
-    const handleBookNow = () => {
+    const handleBookNow = () =>{
         setModal(!modal)
     }
     return (
@@ -82,7 +82,7 @@ const RoomsDetails = () => {
                             <b>Accessible Rooms:</b> We are committed to ensuring that all guests have a comfortable and enjoyable stay. Our Accessible Rooms feature thoughtful design elements to accommodate guests with mobility challenges. Wider doorways, grab bars in bathrooms, and roll-in showers ensure ease of access, providing a welcoming and inclusive environment for all our guests.</p>
 
                     </div>
-                    <div className="bg-primay text-white h-fit p-3 md:p-10 space-y-6 rounded sticky top-24">
+                    <div className="bg-primay text-white h-fit p-3 md:p-10 space-y-6 rounded sticky top-24"> 
                         <div className="flex items-center justify-between text-2xl md:text-3xl font-bold">
                             <h1>Price Per Night :</h1>
                             <p className="">$ {price_per_night}</p>
@@ -101,11 +101,11 @@ const RoomsDetails = () => {
                         </div>
                         <div className="flex items-center justify-center text-3xl font-bold">
                             <button
-                                onClick={() => handleBookNow(_id)}
-                                disabled={availability === 'All Ready Booked'}
-                                className={`bg-black $} text-white text-xl font-bold rounded px-8 py-3`}>{
-                                    availability === 'All Ready Booked' ? 'Already Booked' : 'Book Now'
-                                }</button>
+                            onClick={()=>handleBookNow(_id)}
+                            disabled={availability === 'All Ready Booked'}
+                            className={`bg-black $} text-white text-xl font-bold rounded px-8 py-3`}>{
+                                availability === 'All Ready Booked' ? 'Already Booked' : 'Book Now'
+                            }</button>
                         </div>
                     </div>
                 </div>
@@ -115,14 +115,14 @@ const RoomsDetails = () => {
                 <div className="py-16">
                     <h1 className="text-3xl pb-5">Review ({filter.length})</h1>
                     <div className="grid grid-cols-1 lg:grid-cols-2  gap-6">
-                        {
-                            filter.map(review => <div className="border p-5 space-y-3 border-primay" key={review._id}>
-                                <h1>{review.customerReview}</h1>
-                                <p>Name : <span className="font-bold text-xl"> {review.reviewUser}</span> </p>
-                                <p>Date : <span className="font-bold text-xl"> {review.reviewDate}</span> </p>
-                                <p>Rating : <span className="font-bold text-xl"> {review.ratings}</span> </p>
-                            </div>)
-                        }
+                    {
+                        filter.map(review => <div className="border p-5 space-y-3 border-primay" key={review._id}>
+                            <h1>{review.customerReview}</h1>
+                            <p>Name : <span className="font-bold text-xl"> {review.reviewUser}</span> </p>
+                            <p>Date : <span className="font-bold text-xl"> {review.reviewDate}</span> </p>
+                            <p>Rating : <span className="font-bold text-xl"> {review.ratings}</span> </p>
+                        </div>)
+                    }
                     </div>
                 </div>
             </div>
