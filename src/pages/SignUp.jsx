@@ -23,7 +23,6 @@ const SignUp = () => {
             setError('your password should be one uppercase and one lowercase and at least one numer')
             return
         }
-
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
